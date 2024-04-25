@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration debug="false">
+
+    <appender name="mail" class="org.apache.log4j.net.SMTPAppender">
+        <param name="SMTPHost" value="smtp.myservername.xx" />
+        <param name="From" value="email@fromemail.xx" />
+        <param name="To" value="toemail@toemail.xx" />
+        <param name="Subject" value="[LOG] ..." />
+        <param name="BufferSize" value="1" />
+        <param name="threshold" value="error" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ABSOLUTE} [%-5p] %-10c{1}:%4L-%m%n" />
+        </layout>
+    </appender>
+
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <param name="threshold" value="INFO" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5p|%d{HH:mm:ss}{%-4t}%4L-%m%n"/>
+        </layout>
+    </appender>
+    <appender name="com.thlink.testevlc" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${user.dir}/Log/TesteVLC.log" />
+        <param name="DatePattern" value="'.'dd-MM-yyyy-a" />
+        <param name="Append" value="true" /> 
+        <param name="threshold" value="ALL" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5p|%d{HH:mm:ss}{%-4t}%4L-%m%n"/>
+        </layout>
+    </appender>        
+    
+    
+    <category name="com.thlink.testevlc" additivity="false">
+        <priority value="INFO"/>
+        <appender-ref ref="com.thlink.testevlc"/>
+        <appender-ref ref="stdout" /> 
+    </category>
+    
+    
+    <root>
+    </root> 
+
+</log4j:configuration>
