@@ -1,1 +1,1 @@
-![image](https://github.com/MThomasThlink/TesteVLC/assets/151654642/a1aa113a-b3c4-4476-a819-d60b6aa7bc70)
+![image](https://github.com/MThomasThlink/TesteVLC/assets/151654642/04cf5db6-7d14-45f9-9b47-d332b6ff0192)
